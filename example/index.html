@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Example</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Redirect</h1>
+    <ul>
+      <li><router-link to="/relative-redirect">
+        /relative-redirect (redirects to /foo)
+      </router-link></li>
+      <li><router-link to="/relative-redirect?foo=bar">
+        /relative-redirect?foo=bar (redirects to /foo?foo=bar)
+      </router-link></li>
+      <li><router-link to="/absolute-redirect">
+        /absolute-redirect (redirects to /bar)
+      </router-link></li>
+      <li><router-link to="/dynamic-redirect">
+        /dynamic-redirect (redirects to /bar)
+      </router-link></li>
+      <li><router-link to="/dynamic-redirect/123">
+        /dynamic-redirect/123 (redirects to /with-params/123)
+      </router-link></li>
+      <li><router-link to="/dynamic-redirect?to=foo">
+        /dynamic-redirect?to=foo (redirects to /foo)
+      </router-link></li>
+      <li><router-link to="/dynamic-redirect#baz">
+        /dynamic-redirect#baz (redirects to /baz)
+      </router-link></li>
+      <li><router-link to="/named-redirect">
+        /named-redirect (redirects to /baz)
+      </router-link></li>
+      <li><router-link to="/redirect-with-params/123">
+        /redirect-with-params/123 (redirects to /with-params/123)
+      </router-link></li>
+      <li><router-link to="/foobar">
+        /foobar
+      </router-link></li>
+      <li><router-link to="/FooBar">
+        /FooBar
+      </router-link></li>
+      <li><router-link to="/not-found">
+        /not-found (redirects to /)
+      </router-link></li>
+    </ul>
+    <h2>With dispathing action</h2>
+    <ul>
+      <li><a href="/" @click.prevent="go('home')">
+        /
+      </a></li>
+      <li><a href="/foo" @click.prevent="go('foo')">
+        /foo
+      </a></li>
+      <li><a href="/bar" @click.prevent="go('bar')">
+        /bar
+      </a></li>
+      <li><a href="/baz" @click.prevent="go('baz')">
+        /baz
+      </a></li>
+      <li><a href="/with-params/123" @click.prevent="go('withParams', { params: { id: 123 } })">
+        /with-params/123
+      </a></li>
+      <li><a href="/relative-redirect" @click.prevent="go('relativeRedirect')">
+        /relative-redirect (redirects to /foo)
+      </a></li>
+    </ul>
+    <router-view class="view"></router-view>
+  </div>
+
+  <script src="__build__.js"></script>
+</body>
+</html>
